@@ -31,7 +31,7 @@ void loop() {
   delay(5);
   greenSensorValue = analogRead(greenSensorPin);
   delay(5);
-  blueSensorValue - analogRead(blueSensorPin);
+  blueSensorValue = analogRead(blueSensorPin);
 
   // Print out the sensor readings
   Serial.print("Raw Sensor Values \t red: ");
