@@ -14,7 +14,6 @@
 #include <ezOutput.h>
  
 Arduboy2 arduboy;
-Arduboy2Core arduboyCore;
 
 // Create the variables needed
 int x;
@@ -31,7 +30,10 @@ void setup() {
   arduboy.begin();
   arduboy.setFrameRate(30);
 
- // The blinking setup, and duration 
+  // *Trying* to adjust the brightness
+  setRGBled()
+
+  // The blinking setup, and duration 
   led1.blink(500, 250);       // time (ms) on, and time off
   led2.blink(1000, 500);      // time (ms) one, and time off
 }
