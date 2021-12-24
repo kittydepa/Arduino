@@ -11,6 +11,7 @@
 
 #include <Arduboy2.h>
 #include <Arduboy2Core.h>
+#include <ezOutput.h>
  
 Arduboy2 arduboy;
 
@@ -18,21 +19,27 @@ Arduboy2 arduboy;
 int x;
 int y;
 char* myGreeting = ("Merry Christmas!!! <3 <3 ~ Kitty");
+//
+//// Variables will change (?)
+//int ledState = LOW;                     // ledState used to set the LED
+//
+//// This is for setting up the LEDs so that they can 'blink without delay'
+//unsigned long previousMillis = 0;     // will store last time LED was updated
+//const long interval = 300;          // interval at which to blink (in milliseconds)
+//
 
-// Variables will change (?)
-int ledState = LOW;                     // ledState used to set the LED
-
-// This is for setting up the LEDs so that they can 'blink without delay'
-unsigned long previousMillis = 0;     // will store last time LED was updated
-const long interval = 300;          // interval at which to blink (in milliseconds)
-
+ezOutput led1(GREEN_LED);
+ezOutput led2(RED_LED);
 
 // ------------------------------------------------------- Setup -------------------------------------------------------
 void setup() {
   arduboy.begin();
   arduboy.setFrameRate(30);
-  pinMode(GREEN_LED, OUTPUT);
-  pinMode(RED_LED, OUTPUT);
+//  pinMode(GREEN_LED, OUTPUT);
+//  pinMode(RED_LED, OUTPUT);
+  led1.blink(500, 250);
+  led2.blink(1000, 500);
+   
 }
 
 
@@ -58,26 +65,31 @@ void loop() {
   delay(75);
   
   x--;
-
-    // check to see if it's time for the LED to blink, if the diff. between the current and last time the LED blink 
-  // is greater than the interval at which you want it to blink.
-  unsigned long currentMillis = millis();
-  
-  if (currentMillis - previousMillis >= interval) {
-    // save the last time the LED blinked
-    previousMillis = currentMillis;
-
-    // if the LED is off turn it on, and vice-versa:
-    if (ledState == LOW) {
-      ledState = HIGH;
-    } else {
-      ledState = LOW;
-    }
-
-    // set the LED with the ledState of the variable
-    digitalWrite(GREEN_LED, ledState);
-  }
- 
+//
+//    // check to see if it's time for the LED to blink, if the diff. between the current and last time the LED blink 
+//  // is greater than the interval at which you want it to blink.
+//  unsigned long currentMillis = millis();
+//  
+//  if (currentMillis - previousMillis >= interval) {
+//    // save the last time the LED blinked
+//    previousMillis = currentMillis;
+//
+//    // if the LED is off turn it on, and vice-versa:
+//    if (ledState == LOW) {
+//      ledState = HIGH;
+//    } else {
+//      ledState = LOW;
+//    }
+//
+//    // set the LED with the ledState of the variable
+//    digitalWrite(GREEN_LED, ledState);
+//    
+//    if (GREEN_LED == HIGH) {
+//    digitalWrite(RED_LED, ledState);
+//  }
+//  }
+  led1.loop();
+  led2.loop();
  }
  
 }
