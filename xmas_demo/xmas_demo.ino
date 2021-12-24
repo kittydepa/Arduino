@@ -39,9 +39,7 @@ void setup() {
 //  pinMode(RED_LED, OUTPUT);
   led1.blink(500, 250);
   led2.blink(1000, 500);
-   
 }
-
 
 // ------------------------------------------------------- Main loop -------------------------------------------------------
 void loop() {
@@ -65,29 +63,7 @@ void loop() {
   delay(75);
   
   x--;
-//
-//    // check to see if it's time for the LED to blink, if the diff. between the current and last time the LED blink 
-//  // is greater than the interval at which you want it to blink.
-//  unsigned long currentMillis = millis();
-//  
-//  if (currentMillis - previousMillis >= interval) {
-//    // save the last time the LED blinked
-//    previousMillis = currentMillis;
-//
-//    // if the LED is off turn it on, and vice-versa:
-//    if (ledState == LOW) {
-//      ledState = HIGH;
-//    } else {
-//      ledState = LOW;
-//    }
-//
-//    // set the LED with the ledState of the variable
-//    digitalWrite(GREEN_LED, ledState);
-//    
-//    if (GREEN_LED == HIGH) {
-//    digitalWrite(RED_LED, ledState);
-//  }
-//  }
+
   led1.loop();
   led2.loop();
  }
