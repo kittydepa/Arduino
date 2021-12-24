@@ -14,8 +14,7 @@
 #include <ezOutput.h>
  
 Arduboy2 arduboy;
-
-
+Arduboy2Core arduboyCore;
 
 // Create the variables needed
 int x;
@@ -24,6 +23,7 @@ char* myGreeting = ("Merry Christmas!!! <3 <3 ~ Kitty");
 
 ezOutput led1(GREEN_LED);
 ezOutput led2(RED_LED);
+
 
 // ------------------------------------------------------- Setup -------------------------------------------------------
 void setup() {
@@ -39,7 +39,8 @@ void setup() {
 // ------------------------------------------------------- Main loop -------------------------------------------------------
 void loop() {
 
-  arduboy.setRGBled()
+  // Rainbow, not brightness
+  // arduboy.setRGBled(250, 250, 250);
   
   if (!(arduboy.nextFrame()))
     return;
