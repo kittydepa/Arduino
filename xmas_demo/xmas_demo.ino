@@ -7,34 +7,24 @@
 * The OLED screen dimensions are 128 x 60 pixels (width x height)
 */
 #include <Arduboy2.h>
+#include <Arduboy2Core.h>
  
 Arduboy2 arduboy;
-
-
-// Color array index
-enum class Color {
-  RED,
-  GREEN,
-  BLUE,
-  COUNT
-};
-
-// Map LED color index to LED name
-const byte LEDpin[(byte)(Color::COUNT)] = {
-  RED_LED,
-  GREEN_LED,
-  BLUE_LED
-};
-
 
 // Create the variables needed
 int x;
 int y;
-char* myGreeting = ("Merry Christmas!!! I love you so much <3 ~ Kitty");
+char* myGreeting = ("Merry Christmas!!! <3 <3 ~ Kitty");
+
+static void digitalWriteRGB(uint8_t red,
+                            uint8_t green,
+                            uint8_t blue
+                               );
 
 void setup() {
   arduboy.begin();
   arduboy.setFrameRate(30);
+  arduboy.digitalWriteRGB(RGB_OFF, RGB_OFF, RGB_OFF);
 }
 
 void loop() {
@@ -58,6 +48,16 @@ void loop() {
   delay(75);
   
   x--;
+
+  digitalWriteRGB(RGB_ON, RGB_OFF, RGB_OFF); // Turn on red LED
+  delay(3000);   // Wait for 3 seconds
+  digitalWriteRGB(RGB_OFF, RGB_OFF, RGB_OFF); // Turn off red LED
+  delay(3000); // Wait for 3 seconds
+
+  digitalWriteRGB(RGB_OFF, RGB_ON, RGB_OFF);  // Turn on green LED
+  delay(3000);   // Wait for 3 seconds
+  digitalWriteRGB(RGB_OFF, RGB_ON, RGB_OFF); // Turn off green LED
+  delay(3000); // Wait for 3 seconds
   
   }
 }
