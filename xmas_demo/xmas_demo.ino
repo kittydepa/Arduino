@@ -15,34 +15,32 @@
  
 Arduboy2 arduboy;
 
+
+
 // Create the variables needed
 int x;
 int y;
 char* myGreeting = ("Merry Christmas!!! <3 <3 ~ Kitty");
-//
-//// Variables will change (?)
-//int ledState = LOW;                     // ledState used to set the LED
-//
-//// This is for setting up the LEDs so that they can 'blink without delay'
-//unsigned long previousMillis = 0;     // will store last time LED was updated
-//const long interval = 300;          // interval at which to blink (in milliseconds)
-//
 
 ezOutput led1(GREEN_LED);
 ezOutput led2(RED_LED);
 
 // ------------------------------------------------------- Setup -------------------------------------------------------
 void setup() {
+
   arduboy.begin();
   arduboy.setFrameRate(30);
-//  pinMode(GREEN_LED, OUTPUT);
-//  pinMode(RED_LED, OUTPUT);
-  led1.blink(500, 250);
-  led2.blink(1000, 500);
+
+ // The blinking setup, and duration 
+  led1.blink(500, 250);       // time (ms) on, and time off
+  led2.blink(1000, 500);      // time (ms) one, and time off
 }
 
 // ------------------------------------------------------- Main loop -------------------------------------------------------
 void loop() {
+
+  arduboy.setRGBled()
+  
   if (!(arduboy.nextFrame()))
     return;
   
