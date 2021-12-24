@@ -8,17 +8,19 @@
 */
 #include <Arduboy2.h>
 #include <Arduboy2Core.h>
-#define RGB_ON LOW
-#define RGB_OFF HIGH
  
 Arduboy2 arduboy;
+
+#define RGB_ON LOW
+#define RGB_OFF HIGH
 
 // Create the variables needed
 int x;
 int y;
 char* myGreeting = ("Merry Christmas!!! <3 <3 ~ Kitty");
 
-static void digitalWriteRGB(uint8_t red,
+
+void static digitalWriteRGB(uint8_t red,
                             uint8_t green,
                             uint8_t blue
                                );
@@ -60,6 +62,6 @@ void loop() {
   delay(3000);   // Wait for 3 seconds
   digitalWriteRGB(RGB_OFF, RGB_ON, RGB_OFF); // Turn off green LED
   delay(3000); // Wait for 3 seconds
-  
+
   }
 }
