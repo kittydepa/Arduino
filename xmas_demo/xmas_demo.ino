@@ -11,24 +11,18 @@
  
 Arduboy2 arduboy;
 
-#define RGB_ON LOW
-#define RGB_OFF HIGH
 
 // Create the variables needed
 int x;
 int y;
 char* myGreeting = ("Merry Christmas!!! <3 <3 ~ Kitty");
 
-
-void static digitalWriteRGB(uint8_t red,
-                            uint8_t green,
-                            uint8_t blue
-                               );
-
 void setup() {
   arduboy.begin();
   arduboy.setFrameRate(30);
-  arduboy.digitalWriteRGB(RGB_OFF, RGB_OFF, RGB_OFF);
+//  arduboy.digitalWriteRGB(RGB_OFF, RGB_OFF, RGB_OFF);
+  pinMode(GREEN_LED, OUTPUT);
+  pinMode(RED_LED, OUTPUT);
 }
 
 void loop() {
@@ -53,15 +47,13 @@ void loop() {
   
   x--;
 
-  digitalWriteRGB(RGB_ON, RGB_OFF, RGB_OFF); // Turn on red LED
-  delay(3000);   // Wait for 3 seconds
-  digitalWriteRGB(RGB_OFF, RGB_OFF, RGB_OFF); // Turn off red LED
-  delay(3000); // Wait for 3 seconds
-
-  digitalWriteRGB(RGB_OFF, RGB_ON, RGB_OFF);  // Turn on green LED
-  delay(3000);   // Wait for 3 seconds
-  digitalWriteRGB(RGB_OFF, RGB_ON, RGB_OFF); // Turn off green LED
-  delay(3000); // Wait for 3 seconds
+  digitalWrite(GREEN_LED, LOW); // turn on green LED
+  digitalWrite(RED_LED, HIGH); // turn off red LED
+  delay(1000);
+  digitalWrite(GREEN_LED, HIGH); // turn off green LED
+  digitalWrite(RED_LED, LOW); // turn on red LED
+  delay(1000);
+  
 
   }
 }
