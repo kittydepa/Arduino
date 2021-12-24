@@ -8,6 +8,8 @@
 */
 #include <Arduboy2.h>
 #include <Arduboy2Core.h>
+#define RGB_ON LOW
+#define RGB_OFF HIGH
  
 Arduboy2 arduboy;
 
