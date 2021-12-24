@@ -11,6 +11,21 @@
 Arduboy2 arduboy;
 
 
+// Color array index
+enum class Color {
+  RED,
+  GREEN,
+  BLUE,
+  COUNT
+};
+
+// Map LED color index to LED name
+const byte LEDpin[(byte)(Color::COUNT)] = {
+  RED_LED,
+  GREEN_LED,
+  BLUE_LED
+};
+
 
 // Create the variables needed
 int x;
