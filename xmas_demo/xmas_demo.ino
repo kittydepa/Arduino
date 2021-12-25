@@ -5,68 +5,94 @@
 * This code was originally an example shows how to scroll a line of text
 * across the screen on an Arduboy.
 * The OLED screen dimensions are 128 x 60 pixels (width x height)
-* It has since been modified by myself (Kitty Depa) as a small Xmas exercise for my own learning.
+* It has since been modified by myself as a small Xmas exercise for my own learning.
 */
-
-
 #include <Arduboy2.h>
-#include <Arduboy2Core.h>
-#include <ezOutput.h>
  
 Arduboy2 arduboy;
 
-// Create the variables needed
-int x;
-int y;
-char* myGreeting = ("Merry Christmas!!! <3 <3 ~ Kitty");
+// Set the coordinates to start at the right edge of the screen
+int16_t x = 127;
 
-ezOutput led1(GREEN_LED);
-ezOutput led2(RED_LED);
+// The counter variable
+int16_t step = 0;
 
+// The type of 'myGreeting' is inferred by the compiler
+constexpr char * myGreeting = ("Merry Christmas!!! <3 <3 ~ Kitty");
 
-// ------------------------------------------------------- Setup -------------------------------------------------------
-void setup() {
+// The brightness at which to flash the LED
+constexpr uint8_t brightness = 30;
 
+// Setup
+void setup()
+{
   arduboy.begin();
-  arduboy.setFrameRate(30);
 
-  // *Trying* to adjust the brightness
-  setRGBled()
-
-  // The blinking setup, and duration 
-  led1.blink(500, 250);       // time (ms) on, and time off
-  led2.blink(1000, 500);      // time (ms) one, and time off
+  // Initialise the analogue LED control with the setRGBled function
+  arduboy.setRGBled(0, 0, 0);
 }
 
-// ------------------------------------------------------- Main loop -------------------------------------------------------
-void loop() {
+// Track the state of the LEDs
+bool greenLightOn = false;
+bool redLightOn = false;
 
-  // Rainbow, not brightness
-  // arduboy.setRGBled(250, 250, 250);
-  
-  if (!(arduboy.nextFrame()))
+// Main loop
+void loop()
+{
+  if (!arduboy.nextFrame())
     return;
-  
-  // Set the coordinates to start at the right edge of the screen
-  // and midway down on the Y-axis
-  x = 127;
-  y = 30;
-  
-  // In the for() loop, use the screen width x 2
-  // this allows the entire message to scroll across
-  // before starting over
-  for(int i = 0; i < 256; i++) {
 
   arduboy.clear();
-  arduboy.setCursor(x, y);
+  arduboy.setCursor(x, 30);
   arduboy.print(myGreeting);
   arduboy.display();
-  delay(75);
   
-  x--;
-
-  led1.loop();
-  led2.loop();
- }
- 
+  // Every 1/2 a second (when the Arduboy is at 60FPS - the default)
+  if(arduboy.everyXFrames(30))
+  {
+    // If green light is on
+    if(greenLightOn)
+    {
+      // Turn green light off
+      arduboy.setRGBled(GREEN_LED, 0);
+      greenLightOn = false;
+    }
+    // If green light is off
+    else
+    {
+      // Turn green light on
+      arduboy.setRGBled(GREEN_LED, brightness);
+      greenLightOn = true;
+    }
+  }
+  
+  // Every 2 seconds (when the Arduboy is at 60FPS - the default)
+  if(arduboy.everyXFrames(120))
+  {
+    // If red light is on
+    if(redLightOn)
+    {
+      // Turn red light off
+      arduboy.setRGBled(RED_LED, 0);
+      redLightOn = false;
+    }
+    // If red light is off
+    else
+    {
+      // Turn red light on
+      arduboy.setRGBled(RED_LED, brightness);
+      redLightOn = true;
+    }
+  }
+  
+  if(step < 256)
+  {
+    ++step;
+    --x;
+  }
+  else
+  {
+    step = 0;
+    x = 127;
+  }
 }
