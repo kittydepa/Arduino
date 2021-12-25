@@ -48,7 +48,7 @@ void loop()
   arduboy.display();
   
   // Every 1/2 a second (when the Arduboy is at 60FPS - the default)
-  if(arduboy.everyXFrames(30))
+  if(arduboy.everyXFrames(60))
   {
     // If green light is on
     if(greenLightOn)
