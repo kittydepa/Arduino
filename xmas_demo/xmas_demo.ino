@@ -47,7 +47,7 @@ void loop()
   arduboy.print(myGreeting);
   arduboy.display();
   
-  // Every 1/2 a second (when the Arduboy is at 60FPS - the default) // CHANGES to 60, because 30 was too fast
+  // Every 1/2 a second (when the Arduboy is at 60FPS - the default) // CHANGED to 60, because 30 was too fast
   if(arduboy.everyXFrames(60))
   {
     // If green light is on
