@@ -1,5 +1,5 @@
 # Arduino
-Arduino fun with the Arduino Starter Kit and Arduboy.<br>
+Arduino fun with the Arduino Starter Kit and more.<br>
 I am learning about and experimenting with Arduino for fun in my free time.
 This all started when I first wanted to make my own guitar pedal, and decided that learning how to use Arduino would be a good start.
 As my interests diverged while exploring Arduino, I discovered other fun ways to learn via several different Arduino-community projects.
