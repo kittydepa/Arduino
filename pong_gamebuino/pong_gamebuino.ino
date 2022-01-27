@@ -14,4 +14,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
+  while(!arduboy.update());
+  arduboy.display.clear();
+
+  // This is where most of the program takes place
+  arduboy.display.print("hello, world");
+
+  
 }
