@@ -1,5 +1,15 @@
+// Tutorial from Arduboy Community user: crait 
+
+
+#include <Arduboy2.h>
+Arduboy2 arduboy;
+
 void setup() {
-  // put your setup code here, to run once:
+  arduboy.begin();
+  arduboy.clear();
+  arduboy.print("Pusheen the cat!");
+  arduboy.display();
+
 
 }
 
