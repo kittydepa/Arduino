@@ -13,4 +13,4 @@ My goal with Arduino is to learn how to make a simple, 8-bit game in C++, make a
 
 
 ## Gamebuino (coming soon!)
-* Another fun way to learn how to make games in C++, and more specifically for the [Gamebuino](https://gamebuino.com/academy) &hearts;
+* Another fun way to learn how to make simple games in C++, and more specifically for the [Gamebuino](https://gamebuino.com/academy) &hearts;
