@@ -40,7 +40,7 @@ void loop() {
   if (playerwin == 0) {
     // Ask the player for a number and play the game
  
-    if (attempts == 7) {
+    if (attempts == 3) {
       // Game Over
       arduboy.setCursor(0, 0);
       arduboy.print("You lost!");
@@ -80,7 +80,7 @@ void loop() {
       
     arduboy.setCursor(0, 0);
     arduboy.print("Guess the number \n");
-    arduboy.print("between 1-100.\n");
+    arduboy.print("between 1-20.\n");
     arduboy.print("Press A to submit. \n");
     arduboy.print("\n");
     arduboy.print("\n");
@@ -115,7 +115,7 @@ void loop() {
     arduboy.print("Press A to play again!");
     
     if (arduboy.justPressed(A_BUTTON)) {
-        randomnumber = random(1, 101);
+        randomnumber = random(1, 20);
         attempts = 0;
         playerwin = 0;
       }
