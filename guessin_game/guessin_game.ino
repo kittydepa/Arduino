@@ -1,8 +1,7 @@
-// Part 5 of Make Your Own Arduboy Game Tutorial (from user: crait)
-// Guessing game
-// A number guessing game where Arduboy picks a random number and the player has X attempts to guess the number.
-// After each guess, the Arduboy will tell the player a hint. If the player guesses right, they win!
-
+/* Part 5 of Make Your Own Arduboy Game Tutorial (from user: crait)
+Guessing game
+A number guessing game where Arduboy picks a random number and the player has X attempts to guess the number.
+After each guess, the Arduboy will tell the player a hint. If the player guesses right, they win!*/
 
 
 
@@ -18,6 +17,8 @@ int randomnumber;
 int lastguess;
 
 
+/*-------------------------------------------------------------------------------------*/
+
 void setup() {
   arduboy.begin();
   arduboy.clear();
@@ -28,8 +29,9 @@ void setup() {
   arduboy.initRandomSeed();
   randomnumber = random(1, 21);
   
-
 }
+
+/*-------------------------------------------------------------------------------------*/
 
 
 void loop() {
@@ -42,13 +44,19 @@ void loop() {
  
     if (attempts == 4) {
       // Game Over
+      // Show red LED
+      arduboy.setRGBled(255, 0, 0);
+      
       arduboy.setCursor(0, 0);
       arduboy.print("You lost!");
       arduboy.print("\n");
       arduboy.print("Correct number: ");
       arduboy.print(randomnumber);
       arduboy.print("\n");
-    arduboy.print("Press A to play again!");
+      arduboy.print("Press A to play again!");
+      
+      // Turn off the LED
+      arduboy.setRGBled(0, 0, 0);
       
       if (arduboy.justPressed(A_BUTTON)) {
         randomnumber = random(1, 21);
@@ -107,6 +115,9 @@ void loop() {
 
   else { 
     // Tell the player that they won!
+    // And have a green LED turn on
+    arduboy.setRGBled(0, 255, 0);
+    
     arduboy.setCursor(0, 0);
     arduboy.print("You won!");
     arduboy.print("\n");
@@ -114,6 +125,9 @@ void loop() {
     arduboy.print(randomnumber);
     arduboy.print("\n\n\n");
     arduboy.print("Press A to play again!");
+
+    // Turn off
+    arduboy.setRGBled(0, 0, 0);
     
     if (arduboy.justPressed(A_BUTTON)) {
         randomnumber = random(1, 21);
