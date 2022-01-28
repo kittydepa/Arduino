@@ -1,6 +1,6 @@
 // Part 5 of Make Your Own Arduboy Game Tutorial (from user: crait)
 // Guessing game
-// A number guessing game where Arduboy picks a random number and the player has 7 attempts to guess the number.
+// A number guessing game where Arduboy picks a random number and the player has X attempts to guess the number.
 // After each guess, the Arduboy will tell the player a hint. If the player guesses right, they win!
 
 
@@ -26,7 +26,7 @@ void setup() {
   attempts = 0;
   guessednumber = 0;
   arduboy.initRandomSeed();
-  randomnumber = random(1, 101);
+  randomnumber = random(1, 21);
   
 
 }
@@ -40,7 +40,7 @@ void loop() {
   if (playerwin == 0) {
     // Ask the player for a number and play the game
  
-    if (attempts == 3) {
+    if (attempts == 4) {
       // Game Over
       arduboy.setCursor(0, 0);
       arduboy.print("You lost!");
@@ -51,7 +51,7 @@ void loop() {
     arduboy.print("Press A to play again!");
       
       if (arduboy.justPressed(A_BUTTON)) {
-        randomnumber = random(1, 101);
+        randomnumber = random(1, 21);
         attempts = 0;
         playerwin = 0;
       }
@@ -112,10 +112,11 @@ void loop() {
     arduboy.print("\n");
     arduboy.print("Correct Number: ");
     arduboy.print(randomnumber);
+    arduboy.print("\n\n\n");
     arduboy.print("Press A to play again!");
     
     if (arduboy.justPressed(A_BUTTON)) {
-        randomnumber = random(1, 20);
+        randomnumber = random(1, 21);
         attempts = 0;
         playerwin = 0;
       }
