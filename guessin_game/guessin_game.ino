@@ -59,11 +59,11 @@ void loop() {
     
     else { // Player has more attempts
       if (arduboy.justPressed(UP_BUTTON)) {
-        guessednumber = guessednumber + 1;
+        guessednumber = guessednumber + 1; // How to set a limit here, to the max possible value for this game?
       }
 
       if (arduboy.justPressed(DOWN_BUTTON)) {
-        guessednumber = guessednumber - 1;
+        guessednumber = guessednumber - 1; // Same here, how to set a min value?
       }
 
       if (arduboy.justPressed(A_BUTTON)) {
