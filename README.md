@@ -12,5 +12,5 @@ My goal with Arduino is to learn how to make a simple, 8-bit game, make a guitar
 * Tutorial for how to Make Your Own Arduboygame: [Arduboy community user `crait`](https://community.arduboy.com/t/make-your-own-arduboy-game-part-1-setting-up-your-computer/7924)
 
 
-## Gamebuino (coming soon!)
+## Gamebuino
 * Another fun way to learn how to make simple games in C++, and more specifically for the [Gamebuino](https://gamebuino.com/academy) &hearts;
