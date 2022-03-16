@@ -58,7 +58,7 @@ void loop() {
   if(arduboy.justPressed(LEFT_BUTTON)) {
     playerx = playerx - 1;
   }
-  if(arduboy.justPressed(RIGHTBUTTON)) {
+  if(arduboy.justPressed(RIGHT_BUTTON)) {
     playerx = playerx + 1;
   }
   if(arduboy.justPressed(UP_BUTTON)) {
