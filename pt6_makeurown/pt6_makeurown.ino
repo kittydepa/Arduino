@@ -67,6 +67,8 @@ void loop() {
   if(arduboy.justPressed(DOWN_BUTTON)) {
     playery = playery + 2;
   }
+
+  //TODO: add background images (and more!)
   
   Sprites::drawOverwrite(playerx, playery, player, 0); // The first 2 parameters are X, Y coordinates for where to render the image, what to draw, and what 'frame' to draw
   arduboy.display();
