@@ -34,6 +34,9 @@ const unsigned char PROGMEM player[] = {
   0x7f, 0x80, 0x9c, 0xbc, 0xb0, 0xb0, 0xb2, 0xb2, 0xb3, 0xb0, 0xb0, 0xb0, 0xbc, 0x9c, 0x80, 0x7f, 
 };
 
+int playerx = 5;
+int playery = 10; // these two will be parameters for the Sprites::drawOverwrite function below
+
 
 /*-------------------------------------------------------------------------------------*/
 
@@ -49,6 +52,22 @@ void setup() {
 
 void loop() {
   arduboy.clear();
-  Sprites::drawOverwrite(5, 10, player, 0); // The first 2 parameters are X, Y coordinates for where to render the image, what to draw, and what 'frame' to draw
+  arduboy.pollButtons();
+
+  // Moving the sprite around upon button press
+  if(arduboy.justPressed(LEFT_BUTTON)) {
+    playerx = playerx - 1;
+  }
+  if(arduboy.justPressed(RIGHTBUTTON)) {
+    playerx = playerx + 1;
+  }
+  if(arduboy.justPressed(UP_BUTTON)) {
+    playery = playery - 1;
+  }
+  if(arduboy.justPressed(DOWN_BUTTON)) {
+    playery = playery + 1;
+  }
+  
+  Sprites::drawOverwrite(playerx, playery, player, 0); // The first 2 parameters are X, Y coordinates for where to render the image, what to draw, and what 'frame' to draw
   arduboy.display();
 }
