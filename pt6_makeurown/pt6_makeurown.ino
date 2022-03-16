@@ -17,6 +17,16 @@ const unsigned char PROGMEM background[] = {
   0x81, 0x00, 0x12, 0x40, 0x04, 0x11, 0x00, 0x04,
 };
 
+/*
+   - Explanation of the images: they need to be converted into a byte array.
+   - 'const' is used to set a variable that cannot be changed
+   - 'unsigned' is used because we cannot use negative values (?)
+   - The arrays are given the names 'background' and 'player'
+   - [] are used to create a character array
+   - {} are used for what is actually part of the array
+   - PROGMEM is a macro, that indicates where to store the array in memory
+*/
+
 const unsigned char PROGMEM player[] = {
   //width, height
   16, 16,
@@ -39,6 +49,6 @@ void setup() {
 
 void loop() {
   arduboy.clear();
-
+  Sprites::drawOverwrite(5, 10, player, 0); // The first 2 parameters are X, Y coordinates for where to render the image, what to draw, and what 'frame' to draw
   arduboy.display();
 }
