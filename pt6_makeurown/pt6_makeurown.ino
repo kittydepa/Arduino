@@ -56,16 +56,16 @@ void loop() {
 
   // Moving the sprite around upon button press
   if(arduboy.justPressed(LEFT_BUTTON)) {
-    playerx = playerx - 1;
+    playerx = playerx - 2;
   }
   if(arduboy.justPressed(RIGHT_BUTTON)) {
-    playerx = playerx + 1;
+    playerx = playerx + 2;
   }
   if(arduboy.justPressed(UP_BUTTON)) {
-    playery = playery - 1;
+    playery = playery - 2;
   }
   if(arduboy.justPressed(DOWN_BUTTON)) {
-    playery = playery + 1;
+    playery = playery + 2;
   }
   
   Sprites::drawOverwrite(playerx, playery, player, 0); // The first 2 parameters are X, Y coordinates for where to render the image, what to draw, and what 'frame' to draw
