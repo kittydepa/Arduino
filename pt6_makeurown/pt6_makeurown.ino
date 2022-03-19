@@ -71,7 +71,7 @@ void loop() {
   // Using a for loop, to repeat/tile the background image
   for (int backgroundx = 0; backgroundx < 128; backgroundx = backgroundx + 8){
     for (int backgroundy = 0; backgroundy < 64; backgroundy = backgroundy + 8){
-      Sprites::drawOverwrite(backgroundx, 0, background, 0);
+      Sprites::drawOverwrite(backgroundx, backgroundy, background, 0);
     }
   }
 
