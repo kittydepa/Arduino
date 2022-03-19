@@ -68,8 +68,14 @@ void loop() {
     playery = playery + 2;
   }
 
-  //TODO: add background images (and more!)
+  // Using a for loop, to repeat/tile the background image
+
+  for (int backgroundx = 0; backgroundx < 128; backgroundx = backgroundx + 8){
+    Sprites::drawOverwrite(backgroundx, 0, background, 0);
+  }
+
   
   Sprites::drawOverwrite(playerx, playery, player, 0); // The first 2 parameters are X, Y coordinates for where to render the image, what to draw, and what 'frame' to draw
   arduboy.display();
+  
 }
