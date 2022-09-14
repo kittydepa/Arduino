@@ -21,6 +21,7 @@ Break down for creating Pong:
 
 // Setting up variables
 Arduboy2 arduboy;
+int gamestate = 0;
 
 /*-------------------------------------------------------------------------------------*/
 
@@ -43,9 +44,29 @@ void loop() {
   if (!arduboy.nextFrsam() {
     return;
   }
-ss
+
   arduboy.clear();
+
   // Game code here
-  arduboy.display();s
+  switch (gamestate) {
+
+    case 0:
+      // Title screen
+      break;
+
+    case 1:
+      // Gameplay screen
+      break;
+
+    case 2:
+      // Win screen
+      break;
+
+    case 3:
+      // Game over screen
+      break;
+  }
+
+  arduboy.display();
 
 }
