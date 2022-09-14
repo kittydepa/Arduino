@@ -52,18 +52,38 @@ void loop() {
 
     case 0:
       // Title screen
+      arduboy.setCursor(0,0);
+      arduboy.print("Title Screen");
+      if (arduboy.justPressed(A_BUTTON)) {
+        gamestate = 1;
+      }
       break;
 
     case 1:
       // Gameplay screen
+      arduboy.setCursor(0,0);
+      arduboy.print("Gameplay");
+      if (arduboy.justPressed(A_BUTTON)) {
+        gamestate = 2;
+      }
       break;
 
     case 2:
       // Win screen
+      arduboy.setCursor(0,0);
+      arduboy.print("Win Screen");
+      if (arduboy.justPressed(A_BUTTON)) {
+        gamestate = 3;
+      }
       break;
 
     case 3:
       // Game over screen
+      arduboy.setCursor(0,0);
+      arduboy.print("Game Over Screen");
+      if (arduboy.justPressed(A_BUTTON)) {
+        gamestate = 0;
+      }
       break;
   }
 
