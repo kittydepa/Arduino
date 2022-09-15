@@ -50,19 +50,21 @@ void setup() {
 
 void loop() {
   // Prevent the Arduboy from running too fast
-  if (!arduboy.nextFrsam() {
+  if (!arduboy.nextFrame() {
     return;
   }
 
   arduboy.clear();
+  arduboy.pollButtons();
 
   // Game code here
-  switch (gamestate) {
+  switch ( gamestate ) {
 
     case 0:
       // Title screen
       arduboy.setCursor(0,0);
       arduboy.print("Title Screen");
+      // Change the game state
       if (arduboy.justPressed(A_BUTTON)) {
         gamestate = 1;
       }
@@ -72,6 +74,43 @@ void loop() {
       // Gameplay screen
       arduboy.setCursor(0,0);
       arduboy.print("Gameplay");
+      
+      // Draw the ball
+      arduboy.fillRect(ballx, bally, ballsize, ballsize, WHITE);
+      // Move the ball right
+      if(ballright == 1) {
+        ballx = ballx + 1;
+      }
+      // Move the ball left
+      if(ballright == -1) {
+          ballx = ballx - 1;
+      }
+      // Reflect the ball off of the left side of the screen
+      if(ballx == 0 {
+        ballright = -1;
+      }
+      // Reflect the ball off the right side of the screen - use 127 because Arduboy screen is 128px wide
+      if(ballx + ballsize == 127) {
+        ballright = -1;          
+      }
+      // Move the ball down
+      if(balldown == 1) {
+        bally = bally + 1;
+      }
+      // Move the ball up
+      if(balldown == 0) {
+        balldown = 1;
+      }
+      // Reflect the ball off of the top of the screen
+      if(bally == 0) {
+        balldown = 1;
+      }
+      // Reflect the ball of of the bottom of the screen - use 63 because Arduboy screen height is 64px tall
+      if(bally + ballsize == 63) {
+        balldown = -1;
+      }
+
+      // Change the gamestate
       if (arduboy.justPressed(A_BUTTON)) {
         gamestate = 2;
       }
