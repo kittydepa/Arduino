@@ -23,6 +23,15 @@ Break down for creating Pong:
 Arduboy2 arduboy;
 int gamestate = 0;
 
+// Declare the balls, location, and their size
+int ballx = 62;
+int bally = 0;
+int ballsize = 4;
+
+// Declare for vertical and horizontal direction on the screen
+int ballright = 1;
+int balldown = 1;
+
 /*-------------------------------------------------------------------------------------*/
 
 
